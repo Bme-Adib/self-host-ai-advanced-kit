@@ -19,6 +19,9 @@ integrations and advanced AI components
 ✅ [**Ollama**](https://ollama.com/) - Cross-platform LLM platform to install
 and run the latest local LLMs
 
+✅ [**Open WebUi**](https://openwebui.com/) - Open WebUI is an extensible, 
+self-hosted AI interface that adapts to your workflow, all while operating entirely offline.
+
 ✅ [**Qdrant**](https://qdrant.tech/) - Open-source, high performance vector
 store with an comprehensive API
 
@@ -34,6 +37,14 @@ Engineering world, handles large amounts of data safely.
 ⭐️ **Smarter Slack Bots** for enhanced company communications and IT operations
 
 ⭐️ **Private Financial Document Analysis** at minimal cost
+
+### What's different in this fork?
+
+🎶 **Connect with your own domain** to connect to google services
+
+🎶 **youtube video** to help you go step by step
+
+🎶 **have your open webui** accessable from any Pc on the internet
 
 ## Installation
 
