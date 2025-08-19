@@ -87,19 +87,14 @@ docker compose up -d
 
 ## Upgrading
 
-* ### For Nvidia GPU setups:
+Open powershell and navigate to the folde where you have the docker-compose.yml and 
 
 ```bash
-docker compose --profile gpu-nvidia pull
-docker compose create && docker compose --profile gpu-nvidia up -d
+docker compose down
+docker compose pull
+docker compose --profile gpu-nvidia up -d
 ```
 
-* ### For Non-GPU setups:
-
-```bash
-docker compose --profile cpu pull
-docker compose create && docker compose --profile cpu up
-```
 
 ## 👓 Recommended reading
 
