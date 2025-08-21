@@ -1,124 +1,229 @@
-# Self-hosted AI starter kit
+![Docker](https://img.shields.io/badge/docker-ready-blue) ![Contributions](https://img.shields.io/badge/contributions-welcome-orange) ![Last Commit](https://img.shields.io/github/last-commit/Bme-Adib/self-host-ai-advanced-kit) ![Version](https://img.shields.io/badge/version-2.0.0-green)
 
-**Self-hosted AI Starter Kit** is an open-source Docker Compose template designed to swiftly initialize a comprehensive local AI and low-code development environment.
 
-![n8n.io - Screenshot](https://raw.githubusercontent.com/n8n-io/self-hosted-ai-starter-kit/main/assets/n8n-demo.gif)
 
-Curated by <https://github.com/n8n-io>, it combines the self-hosted n8n
-platform with a curated list of compatible AI products and components to
-quickly get started with building self-hosted AI workflows.
 
-> [!TIP]
-> [Read the announcement](https://blog.n8n.io/self-hosted-ai/)
+# Self-hosted AI Starter Kit
 
-### What’s included
+Easily host your own AI and low-code development environment with Docker. This template combines **n8n**, **Ollama**, **Open WebUI**, **Qdrant**, and **PostgreSQL** into one self-hosted stack.
 
-✅ [**Self-hosted n8n**](https://n8n.io/) - Low-code platform with over 400
-integrations and advanced AI components
+![n8n](https://img.shields.io/badge/n8n-EA4C89?logo=n8n&logoColor=white) ![Ollama](https://img.shields.io/badge/ollama-%23000000.svg?style=for-the-badge&logo=ollama&logoColor=white) ![Postgres](https://img.shields.io/badge/PostgreSQL-4169E1?logo=postgresql&logoColor=white) ![Qdrant](https://img.shields.io/badge/Qdrant-FF4B4B?logo=qdrant&logoColor=white)
 
-✅ [**Ollama**](https://ollama.com/) - Cross-platform LLM platform to install
-and run the latest local LLMs
+Curated by [n8n.io](https://github.com/n8n-io), forked and customized here to include:
 
-✅ [**Open WebUi**](https://openwebui.com/) - Open WebUI is an extensible, 
-self-hosted AI interface that adapts to your workflow, all while operating entirely offline.
+* 🎶 **Domain support** (connect Google services securely)
+* 🎶 **Step-by-step video tutorial**
+* 🎶 **Open WebUI accessible remotely**
 
-✅ [**Qdrant**](https://qdrant.tech/) - Open-source, high performance vector
-store with an comprehensive API
 
-✅ [**PostgreSQL**](https://www.postgresql.org/) -  Workhorse of the Data
-Engineering world, handles large amounts of data safely.
 
-### What you can build
+---
 
-⭐️ **AI Agents** for scheduling appointments
+## Table of Contents
 
-⭐️ **Summarize Company PDFs** securely without data leaks
+* [What’s Included](#whats-included)
+* [What You Can Build](#what-you-can-build)
+* [Prerequisites](#prerequisites)
+* [Step 1: Install Docker](#step-1-install-docker)
+* [Step 2: Install Docker Engine & Compose](#step-2-install-docker-engine--compose)
+* [Step 3: Clone the Repository](#step-3-clone-the-repository)
+* [Step 4: Run the Stack](#step-4-run-the-stack)
 
-⭐️ **Smarter Slack Bots** for enhanced company communications and IT operations
+  * [Nvidia GPU](#for-nvidia-gpu-users)
+  * [AMD GPU](#for-amd-gpu-users-on-linux)
+  * [CPU Only](#to-run-using-cpu-only)
+* [Upgrading](#upgrading)
+* [Cloudflare Tunnel on Windows](#cloudflare-tunnel-on-windows)
+* [Contact](#contact)
 
-⭐️ **Private Financial Document Analysis** at minimal cost
+---
 
-### What's different in this fork?
+## What’s Included
 
-🎶 **Connect with your own domain** to connect to google services
+✅ **[n8n](https://n8n.io/):** Low-code automation platform with AI components
 
-🎶 **youtube video** to help you go step by step
+✅ **[Ollama](https://ollama.com/):** Cross-platform LLM runner
 
-🎶 **have your open webui** accessable from any Pc on the internet
+✅ **[Open WebUI](https://openwebui.com/):** Self-hosted AI chat interface
 
-## Installation
+✅ **[Qdrant](https://qdrant.tech/):** High-performance vector database
 
-### Cloning the Repository
+✅ **[PostgreSQL](https://www.postgresql.org/):** Reliable SQL database engine
+
+---
+
+## What You Can Build
+
+⭐ AI Agents for scheduling and automation
+
+⭐ Secure PDF summarization without data leaks
+
+⭐ Smarter Slack/Discord bots
+
+⭐ Private financial document analysis
+
+---
+
+## Prerequisites
+
+* Ubuntu 20.04 or later
+* A user account with **sudo** privileges
+* Basic familiarity with the terminal
+
+---
+![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white)
+## Step 1: Install Docker
+
+```bash
+sudo apt-get update
+sudo apt-get install -y ca-certificates curl
+
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+echo   "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu   $(. /etc/os-release && echo \"${UBUNTU_CODENAME:-$VERSION_CODENAME}\") stable" |   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+sudo apt-get update
+```
+
+---
+
+## Step 2: Install Docker Engine & Compose
+
+```bash
+sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+```
+
+---
+
+## Step 3: Clone the Repository
 
 ```bash
 git clone https://github.com/Bme-Adib/self-host-ai-advanced-kit.git
 cd self-host-ai-advanced-kit
 ```
 
-### Running n8n using Docker Compose
+---
 
-#### For Nvidia GPU users
-in te same folder where to cloned the files
-run the command
+## Step 4: Run the Stack
+
+### For Nvidia GPU Users
 
 ```bash
 docker compose --profile gpu-nvidia up -d
 ```
 
-> [!NOTE]
-> If you have not used your Nvidia GPU with Docker before, please follow the
-> [Ollama Docker instructions](https://github.com/ollama/ollama/blob/main/docs/docker.md).
+> **Note:** If you haven’t used Nvidia GPU with Docker before, follow [Ollama GPU setup guide](https://github.com/ollama/ollama/blob/main/docs/docker.md).
 
-### For AMD GPU users on Linux
-in te same folder where to cloned the files
-run the command
+### For AMD GPU Users on Linux
 
 ```bash
 docker compose --profile gpu-amd up -d
 ```
 
-### To run using CPU only
-in te same folder where to cloned the files
-run the command
+### To Run Using CPU Only
 
 ```bash
 docker compose up -d
 ```
 
+---
+
 ## Upgrading
 
-Open powershell and navigate to the folde where you have the docker-compose.yml and 
+From the project folder:
 
-```bash
+```powershell
 docker compose down
 docker compose pull
-docker compose --profile gpu-nvidia up -d
 ```
 
+Then restart using your preferred profile (`gpu-nvidia`, `gpu-amd`, or CPU only).
 
-## 👓 Recommended reading
+---
 
-n8n is full of useful content for getting started quickly with its AI concepts
-and nodes. If you run into an issue, go to [support](#support).
+# Cloudflare Tunnel on Windows
 
-- [AI agents for developers: from theory to practice with n8n](https://blog.n8n.io/ai-agents/)
-- [Tutorial: Build an AI workflow in n8n](https://docs.n8n.io/advanced-ai/intro-tutorial/)
-- [Langchain Concepts in n8n](https://docs.n8n.io/advanced-ai/langchain/langchain-n8n/)
-- [Demonstration of key differences between agents and chains](https://docs.n8n.io/advanced-ai/examples/agent-chain-comparison/)
-- [What are vector databases?](https://docs.n8n.io/advanced-ai/examples/understand-vector-databases/)
+You can expose your services securely using Cloudflare Tunnels on Windows. We will use **cloudflared** with **nssm.exe** (Non-Sucking Service Manager) to run it as a service.
 
-## 🎥 Video walkthrough
+### 1. Download & Install `cloudflared`
 
-- 
+* Download from [Cloudflare releases](https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/install-and-setup/installation/).
+* Place `cloudflared.exe` in `C:\cloudflared`.
 
-## 💬 Support
+### 2. Authenticate with Cloudflare
 
-Join the conversation in the [n8n Forum](https://community.n8n.io/), where you
-can:
+```powershell
+cloudflared tunnel login
+```
 
-f you need any help feel free to reach out — I’m always open for questions and collaborations. You can DM me anytime and follow me to stay updated
-with the latest tutorials, projects, and tips I share. Connect with me on 
-- [The Biomed Nest Youtube Channel](https://www.youtube.com/@thebiomednest)
-- [The Biomed Nest instagram](https://www.instagram.com/thebiomednest)
+* A browser window opens. Log in and select your domain.
+* A certificate is saved in `C:\Users\\<YourUser>\\.cloudflared`.
 
-to learn more and never miss new content.
+### 3. Create a Tunnel
+
+```powershell
+cloudflared tunnel create my-tunnel
+```
+
+* Replace `my-tunnel` with a custom name.
+* Save the **Tunnel ID**.
+
+### 4. Create a Config File
+
+Create `C:\cloudflared\config.yml`:
+
+```yaml
+tunnel: <TUNNEL-ID>
+credentials-file: C:\\Users\\<YourUser>\\.cloudflared\\<TUNNEL-ID>.json
+
+ingress:
+  - hostname: mydomain.com
+    service: http://localhost:3000
+  - service: http_status:404
+```
+
+### 5. Route Domain
+
+```powershell
+cloudflared tunnel route dns my-tunnel mydomain.com
+```
+
+### 6. Install `nssm.exe`
+
+* Download from [nssm.cc](https://nssm.cc/download).
+* Place `nssm.exe` in `C:\nssm`.
+
+### 7. Register Cloudflare Tunnel as a Service
+
+```powershell
+nssm install CloudflareTunnel "C:\\cloudflared\\cloudflared.exe" "tunnel run my-tunnel"
+```
+
+Then start the service:
+
+```powershell
+nssm start CloudflareTunnel
+```
+
+---
+
+## ✅ Done!
+
+Your self-hosted AI stack is now accessible via:
+
+```
+https://mydomain.com
+```
+
+---
+
+## Contact
+
+Created by **The Biomed Nest**
+
+* 📺 [YouTube Channel](https://www.youtube.com/@TheBiomedNest)
+* 📸 [Instagram](https://www.instagram.com/thebiomednest)
+
+Feel free to reach out with questions, suggestions, or feedback!
