@@ -102,7 +102,7 @@ sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plug
 Run Powershell as **Administrator**
 
 ```bash
-cd "C:\Program Files"
+cd ~
 git clone https://github.com/Bme-Adib/selfHostAiAdvancedKit.git
 cd selfHostAiAdvancedKit
 ```
