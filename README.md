@@ -28,12 +28,12 @@ Curated by [n8n.io](https://github.com/n8n-io), forked and customized here to in
 * [Step 2: Install Docker Engine & Compose](#step-2-install-docker-engine--compose)
 * [Step 3: Clone the Repository](#step-3-clone-the-repository)
 * [Step 4: Run the Stack](#step-4-run-the-stack)
-
   * [Nvidia GPU](#for-nvidia-gpu-users)
   * [AMD GPU](#for-amd-gpu-users-on-linux)
   * [CPU Only](#to-run-using-cpu-only)
 * [Upgrading](#upgrading)
 * [Cloudflare Tunnel on Windows](#cloudflare-tunnel-on-windows)
+* [List of Suggested Ollama Models](#-list-of-suggested-ollama-models)
 * [Contact](#contact)
 
 ---
@@ -218,6 +218,15 @@ https://mydomain.com
 ```
 
 ---
+
+## 📃 List of Suggested Ollama Models
+
+* [GPT OSS](https://ollama.com/library/gpt-oss): Powerfull Model developed by OpenAI
+* [Qwen3](https://ollama.com/library/qwen3): Powerfull Model developed by Alibaba Cloud
+* [Gemma3](https://ollama.com/library/gemma3): Powerfull Model developed by Google DeepMind
+* [llava](https://ollama.com/library/llava): Powerfull Model developed by Microsoft
+* [nomic-embed-text](https://ollama.com/library/nomic-embed-text:latest): Powerfull Model developed by Nomic AI
+* [magistral](https://ollama.com/library/magistral:latest): Powerfull Model developed by Mistral AI
 
 ## Contact
 
