@@ -103,6 +103,7 @@ Run Powershell as **Administrator**
 
 ```bash
 winget install --id Git.Git -e --source winget
+wsl --update
 ```
 
 ```bash
